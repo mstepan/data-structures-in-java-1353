@@ -3,6 +3,7 @@ package eu.javaspecialists.courses.datastructures.ch2_lists;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Safe iteration
@@ -12,7 +13,7 @@ public class _2_4_CopyOnWriteArrayList {
 
     public static void main(String... args) {
 
-        var list = Collections.synchronizedList(new ArrayList<Integer>());
+        var list = new CopyOnWriteArrayList<Integer>();
 //        var list = new Vector<Integer>();
 
 //        long time = addToListSlow(list, 100_000);
