@@ -5,6 +5,10 @@ package eu.javaspecialists.courses.datastructures.ch2_lists;
  * Accessing middle of list
  */
 public class _2_5_LinkedList {
-  public static void main(String... args) {
-  }
+
+
+    public static void main(String... args) {
+
+
+    }
 }

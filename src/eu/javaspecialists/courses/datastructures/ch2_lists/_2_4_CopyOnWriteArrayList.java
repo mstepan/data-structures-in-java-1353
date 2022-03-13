@@ -2,8 +2,10 @@ package eu.javaspecialists.courses.datastructures.ch2_lists;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import org.w3c.dom.ls.LSOutput;
 
 /**
  * Safe iteration
@@ -12,8 +14,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class _2_4_CopyOnWriteArrayList {
 
     public static void main(String... args) {
-
         var list = new CopyOnWriteArrayList<Integer>();
+
 //        var list = new Vector<Integer>();
 
 //        long time = addToListSlow(list, 100_000);
@@ -28,13 +30,14 @@ public class _2_4_CopyOnWriteArrayList {
         long time = System.nanoTime();
 
         var temp = new ArrayList<Integer>(count);
-        for (int i = 0; i < count; ++i) {
+        for (int i = 0; i < count; i++) {
             temp.add(i);
         }
         list.addAll(temp);
         time = System.nanoTime() - time;
         return time;
     }
+
 
     // time: O(N^2)
     private static long addToListSlow(List<Integer> list, int count) {
