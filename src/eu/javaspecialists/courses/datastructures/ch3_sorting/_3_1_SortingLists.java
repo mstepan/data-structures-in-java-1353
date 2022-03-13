@@ -11,40 +11,39 @@ import java.util.List;
  * Comparing ints and longs
  */
 public class _3_1_SortingLists {
-    public static void main(String... args) {
-        List<String> names = new ArrayList<>();
-        Collections.addAll(names, "Max", "Zorro", "Olesia");
 
+    public static void main(String... args) {
+        List<Student> names = new ArrayList<>();
+        Collections.addAll(names, new Student("Max", 36), new Student("Zorro", 250), new Student("Olesia", 36),
+                           new Student("Zorro", 99), new Student("Kostia", 16), new Student("Zorro", 150));
+
+        Collections.reverse(names);
+        Collections.shuffle(names);
         Collections.rotate(names, 1);
 
+        names.sort(Student.NAME_THEN_AGE_DESC);
         System.out.println(names);
 
-
-        names.sort(null);
-
-        System.out.println(names);
+//        Collections.rotate(names, 1);
+//        System.out.println(names);
     }
 
-    static class Student {
-        final String name;
-        final int age;
+    record Student(String name, int age) implements Comparable<Student> {
 
-        public static Comparator<Student> NAME_THEN_AGE_DESC = Comparator.comparing(Student::getName).
-            thenComparing(Student::getAge, Comparator.reverseOrder());
+        public static Comparator<Student> NAME_THEN_AGE_DESC = Comparator.comparing(Student::name).
+            thenComparing(Student::age, Comparator.reverseOrder());
 
-        public String getName() {
-            return name;
+        public static Comparator<Student> NAME_THEN_AGE = Comparator.comparing(Student::name).
+            thenComparing(Student::age);
+
+        @Override
+        public int compareTo(Student other) {
+            return NAME_THEN_AGE.compare(this, other);
         }
 
-        public int getAge() {
-            return age;
-        }
-
-        public Student(String name, int age) {
-
-
-            this.name = name;
-            this.age = age;
+        @Override
+        public String toString() {
+            return "(" + name + ", " + age + ")";
         }
     }
 }

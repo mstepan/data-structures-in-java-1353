@@ -11,8 +11,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class _2_4_CopyOnWriteArrayList {
 
     public static void main(String... args) {
-        var list = new CopyOnWriteArrayList<Integer>();
 
+        var list = new CopyOnWriteArrayList<Integer>();
 //        var list = new Vector<Integer>();
 
 //        long time = addToListSlow(list, 100_000);
