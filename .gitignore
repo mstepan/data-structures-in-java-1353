@@ -1,3 +1,7 @@
 *.class
 *.iws
 out/*
+
+# Intellij IDEA files
+*.iml
+*.ipr
